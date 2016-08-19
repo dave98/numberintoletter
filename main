@@ -1,0 +1,151 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+
+    int num, leftdigit, rightdigit, extradigit1, miles, decenasmiles, centenasmiles, millones, decenasmillones;
+
+    string ones[]={"cero",
+    "uno",
+    "dos",
+    "tres",
+    "cuatro",
+    "cinco",
+    "seis",
+    "siete",
+    "ocho",
+    "nueve",
+    "diez",
+    "once",
+    "doce",
+    "trece",
+    "catorce",
+    "quince",
+    "dieciseis",
+    "diecisiete",
+    "dieciocho",
+    "diecinueve",
+};
+
+string tens[] = { "veinte",
+    "treinta",
+    "cuarenta",
+    "cincuenta",
+    "sesenta",
+    "setenta",
+    "ochenta",
+    "noventa",};
+
+string centenas[] = { "ciento",
+    "doscientos",
+    "trescientos",
+    "cuatrocientos",
+    "quinientos",
+    "seiscientos",
+    "setecientos",
+    "ochocientos",
+    "novecientos",
+};
+
+cout << "Ingrese un numero: "<< endl;
+cin >> num;
+
+if (num < 0 || num >= 100000000){
+    cout<<"El numero no esta dentro del rango propuesto"<<endl;
+}
+else if ( num >=0 && num <= 19){
+    cout<<"El numero es: "<< ones[num]<<endl;
+}
+else if (num >= 20 && num <= 99){
+    leftdigit = num / 10;
+    rightdigit = num % 10;
+
+    cout << "El numero es: "<< tens[leftdigit - 2]<<" y "<<ones[rightdigit]<<endl;
+}
+
+else if (num >= 100 && num <=999){
+    extradigit1 = num / 100;
+    num = num % 100;
+    leftdigit = num / 10;
+    rightdigit = num % 10;
+
+    cout << "El numero es: "<<centenas[extradigit1-1]<<" "<< tens[leftdigit-2]<<" y "<<ones[rightdigit]<<endl;
+}
+ else if (num >= 1000 && num <= 9999){
+    miles =  num / 1000;
+    num = num % 1000;
+    extradigit1 = num / 100;
+    num = num % 100;
+    leftdigit = num / 10;
+    rightdigit = num % 10;
+
+    cout << "El numero es: "<<ones[miles]<< " mil "<<centenas[extradigit1-1]<<" "<< tens[leftdigit-2]<<" y "<<ones[rightdigit]<<endl;
+}
+
+ else if (num >= 10000 && num <= 99999){
+    decenasmiles = num / 10000;
+    num = num % 10000;
+    miles =  num / 1000;
+    num = num % 1000;
+    extradigit1 = num / 100;
+    num = num % 100;
+    leftdigit = num / 10;
+    rightdigit = num % 10;
+
+    cout << "El numero es: "<<tens[decenasmiles-2]<<" y "<<ones[miles]<< " mil "<<centenas[extradigit1-1]<<" "<< tens[leftdigit-2]<<" y "<<ones[rightdigit]<<endl;
+}
+
+ else if (num >= 100000 && num <= 999999){
+    centenasmiles = num / 100000;
+    num = num % 100000;
+    decenasmiles = num / 10000;
+    num = num % 10000;
+    miles =  num / 1000;
+    num = num % 1000;
+    extradigit1 = num / 100;
+    num = num % 100;
+    leftdigit = num / 10;
+    rightdigit = num % 10;
+
+    cout << "El numero es: "<<centenas[centenasmiles-1]<<tens[decenasmiles-2]<<" y "<<ones[miles]<< " mil "<<centenas[extradigit1-1]<<" "<< tens[leftdigit-2]<<" y "<<ones[rightdigit]<<endl;
+}
+
+ else if (num >= 1000000 && num <= 9999999){
+    millones = num / 1000000;
+    num = num % 1000000;
+    centenasmiles = num / 100000;
+    num = num % 100000;
+    decenasmiles = num / 10000;
+    num = num % 10000;
+    miles =  num / 1000;
+    num = num % 1000;
+    extradigit1 = num / 100;
+    num = num % 100;
+    leftdigit = num / 10;
+    rightdigit = num % 10;
+
+    cout << "El numero es: "<<ones[millones]<<" millon "<<centenas[centenasmiles-1]<<tens[decenasmiles-2]<<" y "<<ones[miles]<< " mil "<<centenas[extradigit1-1]<<" "<< tens[leftdigit-2]<<" y "<<ones[rightdigit]<<endl;
+}
+/*
+ else if (num >= 10000000 && num <= 99999999){
+    decenasmillones = num / 10000000;
+    num = num % 10000000;
+    millones = num / 1000000;
+    num = num % 1000000;
+    centenasmiles = num / 100000;
+    num = num % 100000;
+    decenasmiles = num / 10000;
+    num = num % 10000;
+    miles =  num / 1000;
+    num = num % 1000;
+    extradigit1 = num / 100;
+    num = num % 100;
+    leftdigit = num / 10;
+    rightdigit = num % 10;
+
+    cout << "El numero es: "<< tens[decenasmillones-2]<<" y "<<ones[millones]<<" millon "<<centenas[centenasmiles-1]<<tens[decenasmiles-2]<<" y "<<ones[miles]<< " mil "<<centenas[extradigit1-1]<<" "<< tens[leftdigit-2]<<" y "<<ones[rightdigit]<<endl;
+}*/
+return 0;
+}
